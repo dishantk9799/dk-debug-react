@@ -6,7 +6,16 @@ const HabitList = () => {
   const today = new Date().toISOString().split("T")[0];
 
   if (habits.length === 0) {
-    return null;
+    return (
+      <div className="flex flex-col items-center justify-center py-16 px-4 animate-in fade-in duration-500">
+        <div className="bg-slate-50/50 border border-slate-100 rounded-2xl p-12 max-w-sm w-full text-center">
+          <h3 className="text-xl font-bold text-slate-700">No habits yet</h3>
+          <p className="text-slate-400 mt-2 text-sm leading-relaxed">
+            Start your journey by adding a new habit above.
+          </p>
+        </div>
+      </div>
+    );
   }
   const total = habits.length;
   const completedToday = habits.filter((h) => h.completedDates.includes(today)).length;
